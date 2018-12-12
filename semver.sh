@@ -18,7 +18,7 @@ if [[ ${PATCH_TYPE} == *"patch"* ]] || [[ ${PATCH_TYPE} == *"minor"* ]] || [[ ${
     echo -e "\n - Committing ${RELEASE_BRANCH} to git";
     git add . && git commit -a -m "Bump version to ${VERSION}" && git push -u origin ${RELEASE_BRANCH};
 
-    git tag -a ${VERSION} -m "Bump version to ${VERSION}";
+    git tag -a ${VERSION} -m "Bump version to ${VERSION}" --force;
     git push origin ${VERSION};
     git request-pull origin/master ${RELEASE_BRANCH};
 
