@@ -14,16 +14,16 @@ if [[ ${PATCH_TYPE} == *"patch"* ]] || [[ ${PATCH_TYPE} == *"minor"* ]] || [[ ${
     RELEASE_BRANCH="release/${VERSION}";
 
     git checkout -b ${RELEASE_BRANCH};
-    git tag -a ${VERSION} -m "Bump version to ${VERSION}"
+#    git tag -a ${VERSION} -m "Bump version to ${VERSION}"
 
     echo -e "\n - Committing ${RELEASE_BRANCH} to git";
-    git add . && git commit -a -m "Bump version to ${VERSION}" && git push -u origin ${RELEASE_BRANCH};
-    git request-pull origin/master ${RELEASE_BRANCH};
+#    git add . && git commit -a -m "Bump version to ${VERSION}" && git push -u origin ${RELEASE_BRANCH};
+#    git request-pull origin/master ${RELEASE_BRANCH};
 
     echo -e "\n - Merging ${RELEASE_BRANCH} into develop";
-    git checkout develop;
-    git merge ${RELEASE_BRANCH};
-    git add . && git commit -a -m "${VERSION}" && git push origin develop;
+#    git checkout develop;
+#    git merge master
+#    git push origin develop;
 
     echo -e "\n - Done";
 else
