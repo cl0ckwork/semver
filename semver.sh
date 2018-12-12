@@ -19,7 +19,7 @@ if [[ ${PATCH_TYPE} == *"patch"* ]] || [[ ${PATCH_TYPE} == *"minor"* ]] || [[ ${
     git commit -a -m "Bump version to ${VERSION}" && git push -u origin ${RELEASE_BRANCH};
 
     echo -e "\n - Tagging commits and requesting PR to master";
-    git tag -a ${VERSION} -m "Bump version to ${VERSION}" --force;
+    git tag -a -m "Bump version to ${VERSION}" --force ${VERSION};
     git push origin ${VERSION};
     git request-pull origin/master ${RELEASE_BRANCH};
 
