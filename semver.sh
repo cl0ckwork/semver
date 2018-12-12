@@ -7,7 +7,7 @@ if [[ ${PATCH_TYPE} == *"patch"* ]] || [[ ${PATCH_TYPE} == *"minor"* ]] || [[ ${
     git checkout develop
 
     VERSION=$(npm version ${PATCH_TYPE});
-    cd ..
+#    cd ..
 
     echo -e "\n - Current git tag w/ commit: $(git describe --tags)";
     echo -e "\n - Updating(${PATCH_TYPE}) version to ${VERSION}";
