@@ -7,7 +7,7 @@ if [[ ${PATCH_TYPE} == *"patch"* ]] || [[ ${PATCH_TYPE} == *"minor"* ]] || [[ ${
     git checkout develop;
     git pull origin develop;
 
-    VERSION=$(npm version ${PATCH_TYPE});
+    VERSION=$(npm version ${PATCH_TYPE} -m "Bump version to %s");
 #    cd ..
 
     echo -e "\n - Current git tag w/ commit: $(git describe --tags)";
@@ -22,7 +22,6 @@ if [[ ${PATCH_TYPE} == *"patch"* ]] || [[ ${PATCH_TYPE} == *"minor"* ]] || [[ ${
 
     echo -e "\n - Tagging commits and requesting PR to master";
     git pull origin ${RELEASE_BRANCH};
-    git tag -a -m "Bump version to ${VERSION}" --force ${VERSION};
     git push origin ${VERSION};
     git request-pull origin/master origin/${RELEASE_BRANCH};
 
