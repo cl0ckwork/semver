@@ -16,7 +16,8 @@ if [[ ${PATCH_TYPE} == *"patch"* ]] || [[ ${PATCH_TYPE} == *"minor"* ]] || [[ ${
     git checkout -b ${RELEASE_BRANCH};
 
     echo -e "\n - Cutting ${RELEASE_BRANCH} branch";
-    git commit -a -m "Bump version to ${VERSION}" && git push -u origin ${RELEASE_BRANCH};
+    git commit -a -m "Bump version to ${VERSION}";
+    git push -u origin ${RELEASE_BRANCH};
 
     echo -e "\n - Tagging commits and requesting PR to master";
     git tag -a -m "Bump version to ${VERSION}" --force ${VERSION};
