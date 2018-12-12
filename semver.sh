@@ -10,7 +10,7 @@ if [[ ${PATCH_TYPE} == *"patch"* ]] || [[ ${PATCH_TYPE} == *"minor"* ]] || [[ ${
     NEW_VERSION=$(npm version ${PATCH_TYPE} -m "Bump version to %s");
 
     echo -e "\n - Current git tag w/ commit: $(git describe --tags)";
-    RELEASE_BRANCH="release/${NEW_VERSION}";
+    RELEASE_BRANCH="release/${NEW_VERSION/v/''}";
 
     echo -e "\n - Updating(${PATCH_TYPE}) version to ${NEW_VERSION} ";
     git checkout -b ${RELEASE_BRANCH};
