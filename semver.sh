@@ -20,9 +20,9 @@ if [[ ${PATCH_TYPE} == *"patch"* ]] || [[ ${PATCH_TYPE} == *"minor"* ]] || [[ ${
     git commit -m "Bump version to ${NEW_VERSION}";
     git push -u origin ${RELEASE_BRANCH};
 
-    echo -e "\n - Tagging commits and requesting PR to master";
+    echo -e "\n - Pushing tag to remove";
     git pull origin ${RELEASE_BRANCH};
-    git push origin ${NEW_VERSION};
+    git push origin ${NEW_NPM_VERSION}; # need the v in front here, so we use the npm version
 
     echo -e "\n - Merging ${RELEASE_BRANCH} into develop";
     git checkout develop;
