@@ -4,7 +4,8 @@ PATCH_TYPE=${1};
 
 if [[ ${PATCH_TYPE} == *"patch"* ]] || [[ ${PATCH_TYPE} == *"minor"* ]] || [[ ${PATCH_TYPE} == *"major"* ]]; then
     echo -e "\n - Starting release process for ${PATCH_TYPE}";
-    git checkout develop
+    git checkout develop;
+    git pull origin develop;
 
     VERSION=$(npm version ${PATCH_TYPE});
 #    cd ..
